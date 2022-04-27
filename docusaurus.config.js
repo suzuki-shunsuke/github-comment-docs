@@ -71,6 +71,13 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      algolia: {
+        appId: 'QUD6958438',
+        // Public API key: it is safe to commit it
+        apiKey: '1f3fd0dfcc22bc13977eefc554b422eb',
+        indexName: 'github-comment',
+        searchParameters: {},
+      },
     }),
 };
 
