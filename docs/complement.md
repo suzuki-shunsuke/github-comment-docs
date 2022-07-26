@@ -12,8 +12,39 @@ The following platforms are supported.
 * GitHub Actions
 * Drone
 * AWS CodeBuild
+* Google Cloud Build
 
 To complement, [suzuki-shunske/go-ci-env](https://github.com/suzuki-shunsuke/go-ci-env) is used.
+
+## Google Cloud Build Support
+
+[#521](https://github.com/suzuki-shunsuke/github-comment/pull/521), github-comment >= [v4.4.0](https://github.com/suzuki-shunsuke/github-comment/releases/tag/v4.4.0)
+
+Set the environment variable `GOOGLE_CLOUD_BUILD`.
+
+```sh
+GOOGLE_CLOUD_BUILD=true
+```
+
+Set the following environment variables using [substitutions](https://cloud.google.com/cloud-build/docs/configuring-builds/substitute-variable-values).
+
+* `COMMIT_SHA`
+* `BUILD_ID`
+* `PROJECT_ID`
+* `_PR_NUMBER`
+* `_REGION`
+
+Specify the repository owner and name in `github-comment.yaml`.
+
+e.g.
+
+github-comment.yaml
+
+```yaml
+base:
+  org: suzuki-shunsuke
+  repo: github-comment
+```
 
 ## Complement the pull request number from CI_INFO_PR_NUMBER
 
