@@ -53,30 +53,6 @@ If the pull request number can't be gotten from platform's built-in environment 
 
 ## Complement options with any environment variables
 
-In addition to the support of the above CI platforms, you can support other platforms with `complement` configuration.
-
-```yaml
-complement:
-  pr:
-  - type: envsubst
-    value: '${GOOGLE_CLOUD_BUILD_PR_NUMBER}'
-  org:
-  - type: envsubst
-    value: 'suzuki-shunsuke'
-  repo:
-  - type: envsubst
-    value: '${GOOGLE_CLOUD_BUILD_REPO_NAME}'
-  sha1:
-  - type: envsubst
-    value: '${GOOGLE_CLOUD_BUILD_COMMIT_SHA}'
-  vars:
-    yoo: # the variable "yoo" is added to "vars"
-    - type: template
-      value: '{{env "YOO"}}'
-```
-
-The following types are supported.
-
-* `envsubst`: [drone/envsubst#EvalEnv](https://pkg.go.dev/github.com/drone/envsubst#EvalEnv)
-* `template`: Go's [text/template](https://golang.org/pkg/text/template/) with [sprig functions](http://masterminds.github.io/sprig/)
-
+:::caution
+This feature was removed from [v5.0.0](https://github.com/suzuki-shunsuke/github-comment/releases/tag/v5.0.0) for security reason.
+:::
