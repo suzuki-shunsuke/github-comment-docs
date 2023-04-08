@@ -17,9 +17,14 @@ If the confgiuration file path isn't specified, the file named `^\.?github-comme
 * SHA1
 * TemplateKey
 * Vars
-* Env: the function to get the environment variable https://golang.org/pkg/os/#Getenv
 * AvoidHTMLEscape: the function to post a comment without HTML escape by [Go's html/template](https://golang.org/pkg/html/template/)
 * Sprig Function: http://masterminds.github.io/sprig/
+
+:::caution
+The function `Env` was removed in github-comment v6.0.0 for security.
+
+> Env: the function to get the environment variable https://golang.org/pkg/os/#Getenv
+:::
 
 ## exec
 
