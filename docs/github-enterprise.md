@@ -12,10 +12,21 @@ github-comment >= [v4.2.0](https://github.com/suzuki-shunsuke/github-comment/rel
 
 Please set the following fields in configuration file `github-comment.yaml`.
 
+GitHub Enterprise Server
 ```yaml
-ghe_base_url: https://api.github.com # CHANGE
-ghe_graphql_endpoint: https://api.github.com/graphql # CHANGE
+ghe_base_url: http(s)://<your_enterprise_hostname> # CHANGE
+ghe_graphql_endpoint: http(s)://<your_enterprise_hostname>/api/graphql # CHANGE
 ```
 
-* https://docs.github.com/en/enterprise-server@3.5/rest/overview/resources-in-the-rest-api#current-version
-* https://docs.github.com/en/enterprise-server@2.20/graphql/guides/forming-calls-with-graphql#the-graphql-endpoint
+See. https://docs.github.com/en/enterprise-server/graphql/guides/forming-calls-with-graphql#the-graphql-endpoint
+
+GitHub Enterprise Cloud
+```yaml
+ghe_base_url: https://api.github.com
+ghe_graphql_endpoint: https://api.github.com/graphql
+```
+
+See. https://docs.github.com/en/enterprise-cloud@latest/graphql/guides/forming-calls-with-graphql#the-graphql-endpoint
+
+- https://docs.github.com/en/enterprise-server@3.5/rest/overview/resources-in-the-rest-api#current-version
+- https://docs.github.com/en/enterprise-server@2.20/graphql/guides/forming-calls-with-graphql#the-graphql-endpoint
