@@ -13,8 +13,8 @@ github-comment >= [v4.2.0](https://github.com/suzuki-shunsuke/github-comment/rel
 Please set the following fields in configuration file `github-comment.yaml`.
 
 ```yaml
-ghe_base_url: https://api.github.com # CHANGE
-ghe_graphql_endpoint: https://api.github.com/graphql # CHANGE
+ghe_base_url: http(s)://<your_enterprise_hostname> # CHANGE
+ghe_graphql_endpoint: http(s)://<your_enterprise_hostname>/api/graphql # CHANGE
 ```
 
 * https://docs.github.com/en/enterprise-server@3.5/rest/overview/resources-in-the-rest-api#current-version
