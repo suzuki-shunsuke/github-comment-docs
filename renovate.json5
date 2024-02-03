@@ -1,0 +1,6 @@
+{
+  extends: [
+    "config:best-practices",
+    "local>suzuki-shunsuke/renovate-config#2.2.0",
+  ],
+}
