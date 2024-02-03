@@ -54,41 +54,73 @@ exec:
         Command output is omitted as it is too long.
 ```
 
-## post: variables which can be used in template
+## Environment variables
 
-* Org
-* Repo
-* PRNumber
-* SHA1
-* TemplateKey
-* Vars
-* AvoidHTMLEscape: the function to post a comment without HTML escape by [Go's html/template](https://golang.org/pkg/html/template/)
-* Sprig Function: http://masterminds.github.io/sprig/
+- GITHUB_TOKEN, GITHUB_ACCESS_TOKEN
+- GH_COMMENT_SKIP_NO_TOKEN, GITHUB_COMMENT_SKIP_NO_TOKEN
+- GITHUB_COMMENT_SKIP
+- GH_COMMENT_REPO_ORG
+- GH_COMMENT_REPO_NAME
+- GH_COMMENT_SHA1
+- GH_COMMENT_CONFIG
+- GH_COMMENT_PR_NUMBER, CI_INFO_PR_NUMBER
+- GH_COMMENT_LOG_LEVEL
+- GH_COMMENT_VAR_*
 
-:::caution
-The function `Env` was removed in github-comment v6.0.0 for security.
+Please see [Complement](complement.md) too.
 
-> Env: the function to get the environment variable https://golang.org/pkg/os/#Getenv
-:::
+## Template Engine
+
+Some fields such `template` and `template_for_too_long` are rendered by [html/template](https://pkg.go.dev/html/template).
+
+## Template Functions
+
+[sprig functions](http://masterminds.github.io/sprig/) except for the following functions are available.
+
+- expandenv, env, getHostByName
+- [os](http://masterminds.github.io/sprig/os.html)
+- [network](http://masterminds.github.io/sprig/network.html)
+
+And the following custom functions are also available.
+
+- AvoidHTMLEscape: Skip escaping HTML
+
+e.g.
+
+```
+{{.CombinedOutput | AvoidHTMLEscape}}
+```
+
+## Variables
+
+### post command
+
+- Org: GitHub Organization name
+- Repo: GitHub Repository name
+- PRNumber: Pull reuest number
+- SHA1: Commit hash
+- TemplateKey: Template key
+- Vars: variables passed by `-var` and `-var-file`, the config `vars`, and the environment variables `GH_COMMENT_VAR_*`
+
+### exec command
+
+In addition to the variables of `post` command, the following variables are available in `when` and `template`.
+
+- Stdout: the command standard output
+- Stderr: the command standard error output
+- CombinedOutput: Stdout + Stderr
+- Command: https://golang.org/pkg/os/exec/#Cmd.String
+- JoinCommand: the string which the command and arguments are joined with the space character ` `
+- ExitCode: the command exit code
 
 ## exec
 
-The configuration of `exec` is little more difficult than `post`, but the template key and `template` is same as `post`.
 The each template is list which element has the attribute `when` and `template`, and `dont_comment`.
 The attribute `when` is evaluated by the evaluation engine  https://github.com/antonmedv/expr , and the result should be `boolean`.
 About expr, please see https://github.com/antonmedv/expr/blob/master/docs/Language-Definition.md too.
 When the evaluation result is `false` the element is ignored, and the first matching element is used.
 If `dont_comment` is `true`, the comment isn't created.
 If no element matches, the comment isn't created without error.
-
-In addition to the variables of `post` command, the following variables can be used in `when` and `template`
-
-* Stdout: the command standard output
-* Stderr: the command standard error output
-* CombinedOutput: Stdout + Stderr
-* Command: https://golang.org/pkg/os/exec/#Cmd.String
-* JoinCommand: the string which the command and arguments are joined with the space character ` `
-* ExitCode: the command exit code
 
 ## Define reusable template components
 
@@ -119,3 +151,9 @@ e.g.
 ```console
 $ github-comment post -var name:foo
 ```
+
+## See also
+
+- [Builtin Templates](builtin-template.md)
+- [GitHub Enterprise Support](github-enterprise.md)
+- [Complement](complement.md)
