@@ -9,6 +9,51 @@ sidebar_position: 500
 The configuration file path can be specified with the `--config (-c)` option.
 If the confgiuration file path isn't specified, the file named `^\.?github-comment\.ya?ml$` would be searched from the current directory to the root directory.
 
+## Configuration file
+
+You can scaffold a configuration file by `github-comment init` command.
+
+```sh
+github-comment init
+```
+
+e.g.
+
+```yaml
+hide:
+  default: |
+    Comment.HasMeta && Comment.Meta.SHA1 != Commit.SHA1 && ! (Comment.Meta.Program == "tfcmt" && Comment.Meta.Command == "apply")
+post:
+  tfmigrate-hcl-not-found:
+    template: |
+      ## :x: {{if .Vars.tfaction_target}}{{.Vars.tfaction_target}}: {{end}}.tfmigrate.hcl isn't found
+
+      {{template "link" .}}
+
+      To run `tfmigrate plan`, `.tfmigrate.hcl` is required.
+    template_for_too_long: |
+      comment is too long
+exec:
+  tfmigrate-plan:
+    - when: true
+      template: |
+        ## {{template "status" .}} {{if .Vars.tfaction_target}}{{.Vars.tfaction_target}}: {{end}} tfmigrate plan
+
+        {{template "link" .}}
+
+        {{template "join_command" .}}
+
+        {{template "hidden_combined_output" .}}
+      template_for_too_long: |
+        ## {{template "status" .}} {{if .Vars.tfaction_target}}{{.Vars.tfaction_target}}: {{end}} tfmigrate plan
+
+        {{template "link" .}}
+
+        {{template "join_command" .}}
+
+        Command output is omitted as it is too long.
+```
+
 ## post: variables which can be used in template
 
 * Org

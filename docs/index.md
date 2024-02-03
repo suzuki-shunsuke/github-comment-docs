@@ -59,7 +59,7 @@ github-comment also supports hiding old comments, which makes pull requests clea
   * github-comment is a single executable binary written in Go. No dependency is needed
 * Post comments according to the result of command
   * For example, you can post comment only when the command failed or the specific phrase is outputted
-* Support hiding comments conditionally
+* Hide old comments conditionally
 * Get CI information automatically from CI Environment variables
 * Manage configuration with YAML
   * You can separate CI script and github-comment configuration
@@ -75,7 +75,3 @@ Written in Japanese.
 ## Release Notes
 
 [GitHub Releases](https://github.com/suzuki-shunsuke/github-comment/releases)
-
-## License
-
-[MIT](https://github.com/suzuki-shunsuke/github-comment/blob/main/LICENSE)
