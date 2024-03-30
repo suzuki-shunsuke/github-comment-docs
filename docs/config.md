@@ -65,7 +65,7 @@ exec:
 - GH_COMMENT_CONFIG
 - GH_COMMENT_PR_NUMBER, CI_INFO_PR_NUMBER
 - GH_COMMENT_LOG_LEVEL
-- GH_COMMENT_VAR_*
+- `GH_COMMENT_VAR_*`
 
 Please see [Complement](complement.md) too.
 
