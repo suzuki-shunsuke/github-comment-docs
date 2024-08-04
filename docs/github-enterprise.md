@@ -4,11 +4,18 @@ sidebar_position: 1000
 
 # GitHub Enterprise Support
 
-:warning: I ([@suzuki-shunsuke](http://github.com/suzuki-shunsuke)) don't use GitHub Enterprise, so I can't confirm if github-comment works well for GitHub Enterprise.
+:::warning
+I ([@suzuki-shunsuke](http://github.com/suzuki-shunsuke)) don't use GitHub Enterprise, so I can't confirm if github-comment works well for GitHub Enterprise.
+:::
 
 github-comment >= [v4.2.0](https://github.com/suzuki-shunsuke/github-comment/releases/tag/v4.2.0)
 
 [#462](https://github.com/suzuki-shunsuke/github-comment/issues/462) [#464](https://github.com/suzuki-shunsuke/github-comment/issues/464)
+
+:::note
+From github-comment [v6.2.0](https://github.com/suzuki-shunsuke/github-comment/releases/tag/v6.2.0),
+github-comment gets GitHub API endpoints from environment variables `GITHUB_API_URL` and `GITHUB_GRAPHQL_URL`, which are built-in variables of GitHub Actions.
+:::
 
 Please set the following fields in configuration file `github-comment.yaml`.
 
