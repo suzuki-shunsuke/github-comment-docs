@@ -1,0 +1,14 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    uses: ./.github/workflows/wc-deploy.yaml
+    permissions: {}
+    with:
+      is_deploy: true
+    secrets:
+      APP_ID: ${{ secrets.APP_ID }}
+      APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
