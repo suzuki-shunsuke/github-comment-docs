@@ -33,7 +33,7 @@ jobs:
           private_key: ${{ secrets.APP_PRIVATE_KEY }}
           repositories: >-
             [
-              "suzuki-shunsuke/github-comment"
+              "github-comment"
             ]
           permissions: >-
             {
