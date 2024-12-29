@@ -4,6 +4,25 @@ sidebar_position: 500
 
 # Configuration
 
+## JSON Schema
+
+You can use JSON Schema of github-comment's configuration file.
+
+- https://github.com/suzuki-shunsuke/github-comment/blob/main/json-schema/github-comment.json
+- https://raw.githubusercontent.com/suzuki-shunsuke/github-comment/refs/heads/main/json-schema/github-comment.json
+
+If you look for a CLI tool to validate configuration with JSON Schema, [ajv-cli](https://ajv.js.org/packages/ajv-cli.html) is useful.
+
+```sh
+ajv --spec=draft2020 -s json-schema/github-comment.json -d github-comment.yaml
+```
+
+### Input Complementation by YAML Language Server
+
+```yaml
+# yaml-language-server: $schema=https://raw.githubusercontent.com/suzuki-shunsuke/github-comment/refs/heads/main/json-schema/github-comment.json
+```
+
 ## Configuration file path
 
 The configuration file path can be specified with the `--config (-c)` option.
