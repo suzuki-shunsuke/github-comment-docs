@@ -34,7 +34,7 @@ In `hide` command, github-comment does the following things.
 
 1. gets the list of pull request (issue) comments
 1. extracts the injected meta data from comments
-1. hide comments which match the [expr](https://github.com/antonmedv/expr/blob/master/docs/Language-Definition.md) expression
+1. hide comments which match the [expr](https://github.com/expr-lang/expr/blob/master/docs/language-definition.md) expression
 
 The following variable is passed to the expression.
 
