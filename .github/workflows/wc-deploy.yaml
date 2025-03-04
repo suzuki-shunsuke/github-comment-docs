@@ -26,26 +26,11 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Generate token
-        id: generate_token
-        uses: tibdex/github-app-token@3beb63f4bd073e61482598c45c71c1019b59b73a # v2.1.0
+      - uses: suzuki-shunsuke/gh-pages-action@6229a3f8d89389da5c234aab3b37ba51a7fee3f6 # v0.0.1
         if: inputs.is_deploy
         with:
           app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.APP_PRIVATE_KEY }}
-          repositories: >-
-            [
-              "github-comment"
-            ]
-          permissions: >-
-            {
-              "contents": "write"
-            }
-
-      - uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
-        if: inputs.is_deploy
-        with:
-          personal_token: ${{ steps.generate_token.outputs.token }}
+          app_private_key: ${{ secrets.APP_PRIVATE_KEY }}
           external_repository: suzuki-shunsuke/github-comment
           publish_dir: ./build
           destination_dir: ./docs
