@@ -2,16 +2,16 @@ name: pull request
 on: pull_request
 jobs:
   status-check:
+    timeout-minutes: 30
     runs-on: ubuntu-24.04
-    if: failure()
-    timeout-minutes: 10
     permissions: {}
-    needs:
-      - build
     steps:
-      - run: exit 1
-  build:
-    uses: ./.github/workflows/wc-deploy.yaml
-    permissions: {}
-    with:
-      is_deploy: false
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4.3.0
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
