@@ -12,10 +12,10 @@ NAME:
    github-comment - post a comment to GitHub
 
 USAGE:
-   github-comment [global options] command [command options]
+   github-comment [global options] [command [command options]]
 
 VERSION:
-   6.3.2 (92bf17c5b20fb7a1246372b0cc9de4b850d50b4b)
+   6.3.4 (6b8a9e9f99bd861e2be5f1490ce2c3be7afa300c)
 
 COMMANDS:
    post     post a comment
@@ -25,9 +25,9 @@ COMMANDS:
    help, h  Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
-   --log-level value  log level [$GH_COMMENT_LOG_LEVEL]
-   --help, -h         show help
-   --version, -v      print the version
+   --log-level string  log level [$GH_COMMENT_LOG_LEVEL]
+   --help, -h          show help
+   --version, -v       print the version
 ```
 
 ## github-comment post
@@ -38,25 +38,25 @@ NAME:
    github-comment post - post a comment
 
 USAGE:
-   github-comment post [command options]
+   github-comment post
 
 OPTIONS:
-   --org value                            GitHub organization name [$GH_COMMENT_REPO_ORG]
-   --repo value                           GitHub repository name [$GH_COMMENT_REPO_NAME]
-   --token value                          GitHub API token [$GITHUB_TOKEN, $GITHUB_ACCESS_TOKEN]
-   --sha1 value                           commit sha1 [$GH_COMMENT_SHA1]
-   --template value                       comment template
-   --template-key value, -k value         comment template key (default: "default")
-   --config value                         configuration file path [$GH_COMMENT_CONFIG]
-   --pr value                             GitHub pull request number (default: 0) [$GH_COMMENT_PR_NUMBER]
-   --var value [ --var value ]            template variable
-   --var-file value [ --var-file value ]  template variable name and file path
-   --dry-run                              output a comment to standard error output instead of posting to GitHub (default: false)
-   --skip-no-token, -n                    works like dry-run if the GitHub Access Token isn't set (default: false) [$GH_COMMENT_SKIP_NO_TOKEN, $GITHUB_COMMENT_SKIP_NO_TOKEN]
-   --silent, -s                           suppress the output of dry-run and skip-no-token (default: false)
-   --stdin-template                       read standard input as the template (default: false)
-   --update-condition value, -u value     update the comment that matches with the condition
-   --help, -h                             show help
+   --org string                             GitHub organization name [$GH_COMMENT_REPO_ORG]
+   --repo string                            GitHub repository name [$GH_COMMENT_REPO_NAME]
+   --token string                           GitHub API token [$GITHUB_TOKEN, $GITHUB_ACCESS_TOKEN]
+   --sha1 string                            commit sha1 [$GH_COMMENT_SHA1]
+   --template string                        comment template
+   --template-key string, -k string         comment template key (default: "default")
+   --config string                          configuration file path [$GH_COMMENT_CONFIG]
+   --pr int                                 GitHub pull request number (default: 0) [$GH_COMMENT_PR_NUMBER]
+   --var string [ --var string ]            template variable
+   --var-file string [ --var-file string ]  template variable name and file path
+   --dry-run                                output a comment to standard error output instead of posting to GitHub (default: false)
+   --skip-no-token, -n                      works like dry-run if the GitHub Access Token isn't set (default: false) [$GH_COMMENT_SKIP_NO_TOKEN, $GITHUB_COMMENT_SKIP_NO_TOKEN]
+   --silent, -s                             suppress the output of dry-run and skip-no-token (default: false)
+   --stdin-template                         read standard input as the template (default: false)
+   --update-condition string, -u string     update the comment that matches with the condition
+   --help, -h                               show help
 ```
 
 ## github-comment exec
@@ -67,24 +67,24 @@ NAME:
    github-comment exec - execute a command and post the result as a comment
 
 USAGE:
-   github-comment exec [command options]
+   github-comment exec
 
 OPTIONS:
-   --org value                            GitHub organization name [$GH_COMMENT_REPO_ORG]
-   --repo value                           GitHub repository name [$GH_COMMENT_REPO_NAME]
-   --token value                          GitHub API token [$GITHUB_TOKEN, $GITHUB_ACCESS_TOKEN]
-   --sha1 value                           commit sha1 [$GH_COMMENT_SHA1]
-   --template value                       comment template
-   --template-key value, -k value         comment template key (default: "default")
-   --config value                         configuration file path [$GH_COMMENT_CONFIG]
-   --pr value                             GitHub pull request number (default: 0) [$GH_COMMENT_PR_NUMBER]
-   --out value [ --out value ]            output destination
-   --var value [ --var value ]            template variable
-   --var-file value [ --var-file value ]  template variable name and file path
-   --dry-run                              output a comment to standard error output instead of posting to GitHub (default: false)
-   --skip-no-token, -n                    works like dry-run if the GitHub Access Token isn't set (default: false) [$GH_COMMENT_SKIP_NO_TOKEN, $GITHUB_COMMENT_SKIP_NO_TOKEN]
-   --silent, -s                           suppress the output of dry-run and skip-no-token (default: false)
-   --help, -h                             show help
+   --org string                             GitHub organization name [$GH_COMMENT_REPO_ORG]
+   --repo string                            GitHub repository name [$GH_COMMENT_REPO_NAME]
+   --token string                           GitHub API token [$GITHUB_TOKEN, $GITHUB_ACCESS_TOKEN]
+   --sha1 string                            commit sha1 [$GH_COMMENT_SHA1]
+   --template string                        comment template
+   --template-key string, -k string         comment template key (default: "default")
+   --config string                          configuration file path [$GH_COMMENT_CONFIG]
+   --pr int                                 GitHub pull request number (default: 0) [$GH_COMMENT_PR_NUMBER]
+   --out string [ --out string ]            output destination
+   --var string [ --var string ]            template variable
+   --var-file string [ --var-file string ]  template variable name and file path
+   --dry-run                                output a comment to standard error output instead of posting to GitHub (default: false)
+   --skip-no-token, -n                      works like dry-run if the GitHub Access Token isn't set (default: false) [$GH_COMMENT_SKIP_NO_TOKEN, $GITHUB_COMMENT_SKIP_NO_TOKEN]
+   --silent, -s                             suppress the output of dry-run and skip-no-token (default: false)
+   --help, -h                               show help
 ```
 
 ## github-comment init
@@ -95,7 +95,7 @@ NAME:
    github-comment init - scaffold a configuration file if it doesn't exist
 
 USAGE:
-   github-comment init [command options]
+   github-comment init
 
 OPTIONS:
    --help, -h  show help
@@ -109,21 +109,21 @@ NAME:
    github-comment hide - hide issue or pull request comments
 
 USAGE:
-   github-comment hide [command options]
+   github-comment hide
 
 OPTIONS:
-   --org value                            GitHub organization name [$GH_COMMENT_REPO_ORG]
-   --repo value                           GitHub repository name [$GH_COMMENT_REPO_NAME]
-   --token value                          GitHub API token [$GITHUB_TOKEN, $GITHUB_ACCESS_TOKEN]
-   --config value                         configuration file path [$GH_COMMENT_CONFIG]
-   --condition value                      hide condition
-   --hide-key value, -k value             hide condition key (default: "default")
-   --pr value                             GitHub pull request number (default: 0) [$GH_COMMENT_PR_NUMBER]
-   --sha1 value                           commit sha1
-   --var value [ --var value ]            template variable
-   --var-file value [ --var-file value ]  template variable name and file path
-   --dry-run                              output a comment to standard error output instead of posting to GitHub (default: false)
-   --skip-no-token, -n                    works like dry-run if the GitHub Access Token isn't set (default: false) [$GH_COMMENT_SKIP_NO_TOKEN, $GITHUB_COMMENT_SKIP_NO_TOKEN]
-   --silent, -s                           suppress the output of dry-run and skip-no-token (default: false)
-   --help, -h                             show help
+   --org string                             GitHub organization name [$GH_COMMENT_REPO_ORG]
+   --repo string                            GitHub repository name [$GH_COMMENT_REPO_NAME]
+   --token string                           GitHub API token [$GITHUB_TOKEN, $GITHUB_ACCESS_TOKEN]
+   --config string                          configuration file path [$GH_COMMENT_CONFIG]
+   --condition string                       hide condition
+   --hide-key string, -k string             hide condition key (default: "default")
+   --pr int                                 GitHub pull request number (default: 0) [$GH_COMMENT_PR_NUMBER]
+   --sha1 string                            commit sha1
+   --var string [ --var string ]            template variable
+   --var-file string [ --var-file string ]  template variable name and file path
+   --dry-run                                output a comment to standard error output instead of posting to GitHub (default: false)
+   --skip-no-token, -n                      works like dry-run if the GitHub Access Token isn't set (default: false) [$GH_COMMENT_SKIP_NO_TOKEN, $GITHUB_COMMENT_SKIP_NO_TOKEN]
+   --silent, -s                             suppress the output of dry-run and skip-no-token (default: false)
+   --help, -h                               show help
 ```
